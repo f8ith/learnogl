@@ -12,17 +12,15 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-std::ifstream in("vertex.glsl");
-std::string vertexShaderSource((std::istreambuf_iterator<char>(in)),
+std::ifstream vin("vertex.glsl");
+std::string vertexShaderSourceStream((std::istreambuf_iterator<char>(vin)),
                                std::istreambuf_iterator<char>());
+const char* vertexShaderSource = vertexShaderSourceStream.data();
 
-const char *fragmentShaderSource =
-    "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\n\0";
+std::ifstream fin("fragment.glsl");
+std::string fragmentShaderSourceStream((std::istreambuf_iterator<char>(fin)),
+                               std::istreambuf_iterator<char>());
+const char* fragmentShaderSource = fragmentShaderSourceStream.data();
 
 int main() {
   // glfw: initialize and configure
