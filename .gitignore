@@ -46,3 +46,7 @@ _deps
 .cache
 /.vs
 /out/build/x64-Debug
+
+learnogl
+
+.DS_Store
